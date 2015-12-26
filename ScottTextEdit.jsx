@@ -1,5 +1,5 @@
 function SelectInputText(element) {
-    element.setSelectionRange(0, element.value.length);
+	element.setSelectionRange(0, element.value.length);
 }
 
 ScottTextEdit = React.createClass({
@@ -15,7 +15,8 @@ ScottTextEdit = React.createClass({
 	propTypes : {
 		text: React.PropTypes.string.isRequired,
 		paramName: React.PropTypes.string.isRequired,
-		change: React.PropTypes.func.isRequired,
+		change: React.PropTypes.func.isRequired,		
+		onstartedit : React.PropTypes.func,
 		placeholder: React.PropTypes.string,
 		activeClassName: React.PropTypes.string,	    
 		validate: React.PropTypes.func,
@@ -27,12 +28,14 @@ ScottTextEdit = React.createClass({
 		return ({
 			editing:false,
 			text: this.props.text,			
-			objID: this.props.ObjID //Do I need this?
+			objID: this.props.objID //Do I need this?
 		})
 	},
 
 	startEditing(){
-		this.setState({editing: true, text: this.props.text});
+		this.setState({editing: true, text: this.props.text});		
+		if (this.props.onstartedit)
+			this.props.onstartedit(this.props.objID);
 	},
 
 	finishEditing() {
@@ -78,13 +81,16 @@ ScottTextEdit = React.createClass({
 		}
 	},
 
-	render() {
+	render() {				
+
 		if(!this.state.editing) {
-			return <span className={this.props.className} onClick={this.startEditing}>{this.state.text || this.props.placeholder}</span>
+			return <input className={this.props.className} onClick={this.startEditing} 
+				defaultValue={this.state.text || this.props.placeholder} key={this.props.objID}/>
 		} else {
 			const Element = this.props.element || 'input';
-			return <Element className={this.props.activeClassName} onKeyDown={this.keyDown} onBlur={this.finishEditing} ref="input" placeholder={this.props.placeholder} defaultValue={this.state.text} onChange={this.textChanged} onReturn={this.finishEditing} />
-		}
+			return 	<Element className={this.props.activeClassName} onKeyDown={this.keyDown} onBlur={this.finishEditing} 
+					ref="input" placeholder={this.props.placeholder} defaultValue={this.state.text} onChange={this.textChanged} onReturn={this.finishEditing} />
+		}		
 	}
 });
 

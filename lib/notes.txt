@@ -1,1 +1,11 @@
-#Notesnote
+#Notes
+
+//Remove stuff
+rm -rf packages/npm-container
+meteor remove npm-container
+meteor update meteorhacks:npm
+meteor
+
+db.getCollection('slackusers').update({"triggers._id" :ObjectId("47d9532eb4a4c3c0b30e24d0")}, {"trigger_text":"New Trigger Text"})
+
+ slackusers.update({_id: ObjectId("9b87867b0228b474e77e4e3b")}, {triggerText : "updated"});

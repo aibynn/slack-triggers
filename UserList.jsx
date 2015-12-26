@@ -39,7 +39,7 @@ SlackUserBox = React.createClass({
 	},
 
 	render() {
-		return ( <div> 
+		return ( <div key="blahblahblah"> 
 			<SlackUserList data={this.props.data} />
 			</div> );
 	}
@@ -80,8 +80,7 @@ SlackUserItem = React.createClass({
 	render ()
 	{
 		return (
-			<button type="button" className="list-group-item" 
-			onClick={this.clickButton}>
+			<button type="button" className="list-group-item" onClick={this.clickButton}>
 			{this.props.data.profile.real_name} - {this.props.data.id}
 			</button>			
 			)
