@@ -59,8 +59,10 @@ SlackUserList = React.createClass({
 		});
 
 		return (		
-			<div className="list-group" key="Yakomugi">
-				{items}			
+			<div className="container-fluid" key="Yakomugi">
+
+				{items}
+
 			</div>
 			)
 
@@ -77,12 +79,24 @@ SlackUserItem = React.createClass({
 		Dispatcher.dispatch({type: "USER_INFO_SELECTED", data : this.props.data});
 	},
 
+    removeUser() {
+        console.log("user obj is hopefully", this.props.data);
+
+        Meteor.call('removeUser', this.props.data._id,
+            function(err, response){
+                //console.log(response);
+            });
+    },
+
 	render ()
 	{
 		return (
-			<button type="button" className="list-group-item" onClick={this.clickButton}>
-			{this.props.data.profile.real_name} - {this.props.data.id}
-			</button>			
+			<div className="row">
+				<button type="button" className="btn btn-default col-xs-10" onClick={this.clickButton}>
+				    {this.props.data.profile.real_name} - {this.props.data.id}
+				</button>
+                <button className="btn btn-default bs col-xs-2" onClick={this.removeUser}><span className="glyphicon glyphicon-remove" aria-hidden="true"/></button>
+            </div>
 			)
 	}
 });

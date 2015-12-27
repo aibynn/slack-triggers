@@ -3,17 +3,8 @@
 </head>
 
 <body>
-	<nav class="navbar navbar-default">
-		<div class="container">
-			<div class="navbar-header col-xs-12 col-sm-12 col-md-12 ">
-				<a class="navbar-brand" href="#">Slack Triggers</a>
-				<ul class="nav navbar-nav">
-					<button class="btn navbar-btn">Refresh from slack</button>
-				</ul>
-			</div>			
-		</div>
+    {{>topbar}}}
 
-	</nav>
 	<div class="container">
 		<div class="col-xs-4 col-sm-4 col-md-4" >
 			<h2>Users</h2>
@@ -39,4 +30,17 @@
 	</div>
 </body>
 
+<template name="topbar">
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header col-xs-12 col-sm-12 col-md-12 ">
+                <a class="navbar-brand" href="#">Slack Triggers</a>
+                <ul class="nav navbar-nav">
+                    <button class="btn navbar-btn" value="Call">Refresh from slack</button>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+</template>
 
