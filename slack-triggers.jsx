@@ -26,6 +26,7 @@ if (Meteor.isClient) {
     Meteor.startup(function(){    
      //Meteor.call("updateUsers");
      //Meteor.call("testSlack");
+     Meteor.call("startMonitoring");
 
   });
   

@@ -48,8 +48,7 @@ TriggerInfo = React.createClass({
         var triggerObj = {
             _id : new Meteor.Collection.ObjectID(),
             userID : this.state.userObj.id,
-            triggerText : "Enter individual words,separated by spaces",
-            responses : ["You can have multiple responses for this one trigger"]
+            triggerText : "Enter individual words,separated by spaces"
         };
 
         SlackUserTriggers.insert(triggerObj);

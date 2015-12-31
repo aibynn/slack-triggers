@@ -36,3 +36,5 @@ meteorflux:dispatcher
 npm-container
 maxharris9:classnames
 khamoud:slack-api
+matb33:collection-hooks
+joncursi:socket-io-client

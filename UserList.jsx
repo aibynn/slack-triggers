@@ -60,10 +60,8 @@ SlackUserList = React.createClass({
 
 		return (		
 			<div className="container-fluid" key="Yakomugi">
-
 				{items}
-
-			</div>
+            </div>
 			)
 
 	},

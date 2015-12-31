@@ -1,4 +1,5 @@
 {	
 	"react" : "0.14.0",
-	"externalify": "0.1.0"	
+	"externalify": "0.1.0",
+	"websocket": "1.0.22"
 }
